@@ -1,0 +1,236 @@
+KAMAL@KAMAL-PC MINGW64 ~
+$ pwd
+/c/Users/KAMAL
+
+KAMAL@KAMAL-PC MINGW64 ~
+$ cd c:
+
+KAMAL@KAMAL-PC MINGW64 /c
+$ pwd
+/c
+
+KAMAL@KAMAL-PC MINGW64 /c
+$ mkdir projects
+
+KAMAL@KAMAL-PC MINGW64 /c
+$ cd projects
+
+KAMAL@KAMAL-PC MINGW64 /c/projects
+$ git init
+Initialized empty Git repository in C:/projects/.git/
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ ls -al
+total 20
+drwxr-xr-x 1 KAMAL 197121 0 Jan 18 16:49 ./
+drwxr-xr-x 1 KAMAL 197121 0 Jan 18 16:48 ../
+drwxr-xr-x 1 KAMAL 197121 0 Jan 18 16:49 .git/
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cd .git/
+
+KAMAL@KAMAL-PC MINGW64 /c/projects/.git (GIT_DIR!)
+$ ls
+config  description  HEAD  hooks/  info/  objects/  refs/
+
+KAMAL@KAMAL-PC MINGW64 /c/projects/.git (GIT_DIR!)
+$ cd ..
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat > file1.txt
+this is file1.
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ ls
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git commit -m "First commit on file1.txt"
+[master (root-commit) 02f61c4] First commit on file1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git log
+commit 02f61c4e056858bf2e7f869463da312a3f4c3ba7 (HEAD -> master)
+Author: kamal <you@example.com>
+Date:   Mon Jan 18 16:59:13 2021 +0530
+
+    First commit on file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git log --oneline
+02f61c4 (HEAD -> master) First commit on file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat >> file1.txt
+this is the new line
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ gls
+bash: gls: command not found
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ ls
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git commit -m "secod commit"
+On branch master
+Changes not staged for commit:
+        modified:   file1.txt
+
+no changes added to commit
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat file1.txt
+this is file1.
+this is the new line
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git restore file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat file1.txt
+this is file1.
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat >> file1.txt
+new lines are added
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat file1.txt
+this is file1.
+new lines are added
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git commit -a -m "second commit"
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+[master 9030bc4] second commit
+ 1 file changed, 1 insertion(+)
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ cat > file2.txt
+this is the second file
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ ls
+file1.txt  file2.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git commit -a -m "first commit on file2.txt" file2.txt
+fatal: paths 'file2.txt ...' with -a does not make sense
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git add file2.txt
+warning: LF will be replaced by CRLF in file2.txt.
+The file will have its original line endings in your working directory
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git commit -m "first commit on file2.txt" file2.txt
+warning: LF will be replaced by CRLF in file2.txt.
+The file will have its original line endings in your working directory
+[master 8a678eb] first commit on file2.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+file1.txt
+file2.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git rm --cached file2.txt
+rm 'file2.txt'
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git ls-files
+file1.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ ls
+file1.txt  file2.txt
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+
+KAMAL@KAMAL-PC MINGW64 /c/projects (master)
+$
